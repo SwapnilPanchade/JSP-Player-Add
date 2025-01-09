@@ -4,6 +4,7 @@
 	operations here</h1>
 <br/>
 <a href ="addplayer">Add New Player</a>
+<a href = "deleteplayer">Delete Player</a>
 <%
 List<Player> players = (List) request.getAttribute("players");
 %>
@@ -23,6 +24,7 @@ List<Player> players = (List) request.getAttribute("players");
         <td><%= player.getPlayerName() %></td>
         <td><%= player.getPlayerAge() %></td>
         <td><%= player.getTeamName() %></td>
+        
     </tr>
     <%
         }

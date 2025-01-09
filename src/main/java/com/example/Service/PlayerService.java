@@ -16,4 +16,9 @@ public class PlayerService {
 
         System.err.println("Player successfully added ");
     }
+
+    public void deletePlayer(int id) {
+        System.err.println("This is player service : delete operation ");
+        playerDao.deletePlayer(id);
+    }
 }

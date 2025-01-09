@@ -8,10 +8,7 @@ import com.example.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -90,5 +87,20 @@ public class UserController {
         getAllPlayers(model);
         return "player";
     }
+
+    @GetMapping("deleteplayer")
+    public String deletePlayer(Model model){
+        List<Player> players = playerDao.allPlayers();
+        model.addAttribute("players", players);
+        return "deleteplayer";
+    }
+
+    @DeleteMapping("deleteplayer")
+    public String deletePlayer(@RequestParam("id") int id, Model model){
+        playerService.deletePlayer(id);
+        getAllPlayers(model);
+        return "player";
+    }
+
 
 }
